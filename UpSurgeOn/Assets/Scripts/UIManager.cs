@@ -36,21 +36,16 @@ public class UIManager : MonoBehaviour
 
     public Text text;
 
+    public bool canSelectBodyParts;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        canSelectBodyParts = true;
     }
 
     public void CharacterSkins()
@@ -92,13 +87,14 @@ public class UIManager : MonoBehaviour
     {
         humanAnatomy.GetComponent<Animator>().Play("BodyMoveLeft");
         informativePanel.Play("InformativeLeft");
-        cameraSlide.Play("SlideLeft");
+        //cameraSlide.Play("SlideLeft");
         text.text = "Empty";
 
         // Disable components color
         foreach (GameObject i in bodyComponents)
         {
             i.GetComponent<Renderer>().material.color = i.GetComponent<BodyController>().bodyPart.disableColor;
+            canSelectBodyParts = true;
         }
     }
 }

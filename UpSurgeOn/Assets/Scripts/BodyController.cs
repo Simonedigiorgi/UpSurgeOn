@@ -10,6 +10,11 @@ public class BodyController : MonoBehaviour
 
     private void Update()
     {
+        /*if (UIManager.Instance.canSelectBodyParts)
+        {
+
+        }*/
+
         if (Input.GetMouseButtonUp(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -21,21 +26,25 @@ public class BodyController : MonoBehaviour
                     UIManager.Instance.text.text = bodyPart.bodyPartName;
                     humanAnatomy.GetComponent<Animator>().Play("BodyMoveRight");
                     UIManager.Instance.informativePanel.Play("InformativeRight");
-                    UIManager.Instance.cameraSlide.Play("SlideRight");
+                    //UIManager.Instance.cameraSlide.Play("SlideRight");
 
+                    foreach (GameObject g in UIManager.Instance.bodyComponents)
+                    {
+                        g.GetComponent<Renderer>().material.color = bodyPart.disableColor;
+                    }
                     GetComponent<Renderer>().material.color = bodyPart.enableColor;
+                    //CameraController.Instance.GetComponent<Camera>().fieldOfView = 4f;
+                    //UIManager.Instance.canSelectBodyParts = false;
                     //UpdatePosition();
                 }
             }
         }
+
     }
 
     public void UpdatePosition()
     {
-        Vector3 newPosition = Vector3.Lerp(CameraController.Instance.transform.position, new Vector3(0, transform.GetChild(0).transform.position.y, -5f), 1f);
+        Vector3 newPosition = Vector3.Lerp(CameraController.Instance.transform.position, new Vector3(0, transform.GetChild(0).transform.position.y, -4f), 1f);
         CameraController.Instance.transform.position = newPosition;
-
-        // Slider
-        //CameraController.Instance.slider.
     }
 }

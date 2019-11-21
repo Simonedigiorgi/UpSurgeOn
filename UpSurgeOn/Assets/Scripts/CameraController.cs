@@ -56,10 +56,10 @@ public class CameraController : MonoBehaviour
             speedTouch1 = Input.GetTouch(1).deltaPosition.magnitude / Input.GetTouch(1).deltaTime;
 
             if ((touchDelta + varianceInDistances <= 1) && (speedTouch0 > minPinchSpeed) && (speedTouch1 > minPinchSpeed))
-                selectedCamera.fieldOfView = Mathf.Clamp(selectedCamera.fieldOfView + 0.5f, 4, 15);
+                selectedCamera.fieldOfView = Mathf.Clamp(selectedCamera.fieldOfView + 0.3f, 4, 7);
 
             if ((touchDelta + varianceInDistances > 1) && (speedTouch0 > minPinchSpeed) && (speedTouch1 > minPinchSpeed))
-                selectedCamera.fieldOfView = Mathf.Clamp(selectedCamera.fieldOfView - 0.5f, 4, 15);
+                selectedCamera.fieldOfView = Mathf.Clamp(selectedCamera.fieldOfView - 0.3f, 4, 7);
         }
     }
 
