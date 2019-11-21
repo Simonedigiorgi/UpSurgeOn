@@ -1,9 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CameraZoom : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
+    private static CameraController _instance;
+    public static CameraController Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<CameraController>();
+            }
+
+            return _instance;
+        }
+    }
+
+    // Camera Zoom
     public Camera selectedCamera;
     public float minPinchSpeed = 5.0F;
     public float varianceInDistances = 5.0F;
@@ -13,8 +29,24 @@ public class CameraZoom : MonoBehaviour
     private float speedTouch0 = 0.0F;
     private float speedTouch1 = 0.0F;
 
+    // Camera Slider
+    public Slider slider;
+    private Vector3 position1 = new Vector3(0f, 0f, -5);
+    private Vector3 position2 = new Vector3(0f, -1.65f, -5);
+
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
+        slider.onValueChanged.AddListener(UpdatePosition);
+    }
+
     void Update()
     {
+        // Zoom
         if (Input.touchCount == 2 && Input.GetTouch(0).phase == TouchPhase.Moved && Input.GetTouch(1).phase == TouchPhase.Moved)
         {
             curDist = Input.GetTouch(0).position - Input.GetTouch(1).position; //current distance between finger touches
@@ -31,4 +63,10 @@ public class CameraZoom : MonoBehaviour
         }
     }
 
+    // Slider
+    public void UpdatePosition(float value)
+    {
+        Vector3 newPosition = Vector3.Lerp(position1, position2, value);
+        selectedCamera.transform.position = newPosition;
+    }
 }

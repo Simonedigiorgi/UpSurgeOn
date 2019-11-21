@@ -10,9 +10,9 @@ public class Rotation : MonoBehaviour
 
     void Update()
     {
-        if (Input.touchCount > 0)
+        /*if (Input.touchCount > 0)
         {
-            // Character rotation
+            // Character rotation WITH RAYCAST
             if (Input.GetTouch(0).phase == TouchPhase.Moved)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
@@ -26,6 +26,17 @@ public class Rotation : MonoBehaviour
                     }
                 }
             }
+        }*/
+
+        if (Input.touchCount > 0)
+        {
+            // Character rotation
+            if (Input.GetTouch(0).phase == TouchPhase.Moved)
+            {
+                rotationY = Quaternion.Euler(0f, -Input.GetTouch(0).deltaPosition.x * 0.2f, 0f);
+                transform.rotation = rotationY * transform.rotation;
+            }
         }
+
     }
 }
