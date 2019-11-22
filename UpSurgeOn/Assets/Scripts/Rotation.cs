@@ -6,6 +6,7 @@ public class Rotation : MonoBehaviour
 {
     private Touch touch;
     private Vector2 touchPosition;
+    private Quaternion rotationX;
     private Quaternion rotationY;
 
     void Update()
@@ -15,8 +16,8 @@ public class Rotation : MonoBehaviour
             // Character rotation
             if (Input.GetTouch(0).phase == TouchPhase.Moved)
             {
-                rotationY = Quaternion.Euler(0f, -Input.GetTouch(0).deltaPosition.x * 0.2f, 0f);
-                transform.rotation = rotationY * transform.rotation;
+                rotationX = Quaternion.Euler(0f, -Input.GetTouch(0).deltaPosition.x * 0.2f, 0f);
+                transform.rotation = rotationX * transform.rotation;
             }
         }
     }

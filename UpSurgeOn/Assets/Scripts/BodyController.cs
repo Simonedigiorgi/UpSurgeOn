@@ -5,25 +5,21 @@ using UnityEngine.UI;
 
 public class BodyController : MonoBehaviour
 {
-    public BodyParts bodyPart;
+    public Body bodyPart;
     public Transform humanAnatomy;
 
     private void Update()
     {
-        /*if (UIManager.Instance.canSelectBodyParts)
-        {
-
-        }*/
-
         if (Input.GetMouseButtonUp(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.name == bodyPart.bodyPartName && UIManager.Instance.skinsButton.GetComponent<Image>().color == UIManager.Instance.disableColor && UIManager.Instance.musclesButton.GetComponent<Image>().color == UIManager.Instance.disableColor)
+                if (hit.transform.name == bodyPart.IdName && UIManager.Instance.skinsButton.GetComponent<Image>().color == UIManager.Instance.disableColor && UIManager.Instance.musclesButton.GetComponent<Image>().color == UIManager.Instance.disableColor)
                 {
-                    UIManager.Instance.text.text = bodyPart.bodyPartName;
+                    UIManager.Instance.titleText.text = bodyPart.name.ToUpper();
+                    UIManager.Instance.descriptionText.text = bodyPart.description;
                     humanAnatomy.GetComponent<Animator>().Play("BodyMoveRight");
                     UIManager.Instance.informativePanel.Play("InformativeRight");
                     //UIManager.Instance.cameraSlide.Play("SlideRight");

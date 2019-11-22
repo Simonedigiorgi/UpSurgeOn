@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     }
 
     public GameObject[] bodyComponents;
+    public Text[] labelText;
 
     public GameObject skinsButton;
     public GameObject musclesButton;
@@ -34,9 +35,8 @@ public class UIManager : MonoBehaviour
     public Color enableColor;
     public Color disableColor;
 
-    public Text text;
-
-    public bool canSelectBodyParts;
+    public Text titleText;
+    public Text descriptionText;
 
     void Awake()
     {
@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        canSelectBodyParts = true;
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
     public void CharacterSkins()
@@ -57,7 +57,6 @@ public class UIManager : MonoBehaviour
                 skin.SetActive(true);
                 skinsButton.GetComponent<Image>().color = enableColor;
             }
-
             else
             {
                 skin.SetActive(false);
@@ -74,27 +73,32 @@ public class UIManager : MonoBehaviour
             muscles.SetActive(true);
             musclesButton.GetComponent<Image>().color = enableColor;
         }
-
         else
         {
             muscles.SetActive(false);
             musclesButton.GetComponent<Image>().color = disableColor;
         }
-
     }
 
     public void CloseDescription()
     {
         humanAnatomy.GetComponent<Animator>().Play("BodyMoveLeft");
         informativePanel.Play("InformativeLeft");
-        //cameraSlide.Play("SlideLeft");
-        text.text = "Empty";
 
-        // Disable components color
+        // Disable component colors
         foreach (GameObject i in bodyComponents)
-        {
             i.GetComponent<Renderer>().material.color = i.GetComponent<BodyController>().bodyPart.disableColor;
-            canSelectBodyParts = true;
+    }
+
+    public void ShowLabels()
+    {
+        // Shows label name on body part 
+        foreach (Text t in labelText)
+        {
+            if (t.enabled)
+                t.enabled = false;
+            else
+                t.enabled = true;
         }
     }
 }

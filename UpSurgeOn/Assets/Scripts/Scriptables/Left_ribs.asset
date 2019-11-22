@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c78bc44edb53ae48a8893401dcbfe46, type: 3}
   m_Name: Left_ribs
   m_EditorClassIdentifier: 
-  bodyPartName: Left_ribs
+  IdName: Left_ribs
+  name: Left Ribs
+  description: One of the 12 paired arches of bone that form the skeletal structure
+    of the chest wall (the rib cage). The ribs attach to the vertebrae of the spine
+    in the back. The 12 pairs of ribs consist of 7 pairs of ribs that attach to the
+    sternum in the front and are known as true, or sternal, ribs; and 5 pairs of lower
+    ribs that do not connect directly to the sternum and are known as false ribs.
+    The upper 3 false ribs connect to the costal cartilages of the ribs just above
+    them. The last 2 false ribs usually have no anchor in front and are known as floating,
+    fluctuating, or vertebral ribs.
   enableColor: {r: 1, g: 0.84985, b: 0.5896226, a: 0}
   disableColor: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 1}
