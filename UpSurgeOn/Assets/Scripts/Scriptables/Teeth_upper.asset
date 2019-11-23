@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c78bc44edb53ae48a8893401dcbfe46, type: 3}
+  m_Name: Teeth_upper
+  m_EditorClassIdentifier: 
+  IdName: Teeth_upper
+  name: Teeth Upper
+  description: 'The human teeth function to mechanically break down items of food
+    by cutting and crushing them in preparation for swallowing and digesting. Humans
+    have four types of teeth: incisors, canines, premolars, and molars, which each
+    have a specific function. The incisors cut the food, the canines tear the food
+    and the molars and premolars crush the food. The roots of teeth are embedded in
+    the maxilla (upper jaw) or the mandible (lower jaw) and are covered by gums. Teeth
+    are made of multiple tissues of varying density and hardness.'
+  clickSound: {fileID: 8300000, guid: b7edbfa8537050b4a9d58ce75694c356, type: 3}
+  enableColor: {r: 1, g: 0.84985, b: 0.5896226, a: 0}
+  disableColor: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 1}

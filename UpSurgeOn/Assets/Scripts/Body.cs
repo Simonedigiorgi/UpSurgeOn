@@ -10,6 +10,8 @@ public class Body : ScriptableObject
     public new string name;
     public string description;
 
+    public AudioClip clickSound;
+
     public Color enableColor;
     public Color disableColor;
 }

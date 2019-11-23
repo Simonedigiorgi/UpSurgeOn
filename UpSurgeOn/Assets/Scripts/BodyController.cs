@@ -6,7 +6,14 @@ using UnityEngine.UI;
 public class BodyController : MonoBehaviour
 {
     public Body bodyPart;
-    public Transform humanAnatomy;
+    private Transform humanAnatomy;
+
+
+
+    private void Start()
+    {
+        humanAnatomy = GameObject.FindGameObjectWithTag("HumanAnatomy").transform;
+    }
 
     private void Update()
     {
@@ -29,9 +36,17 @@ public class BodyController : MonoBehaviour
                         g.GetComponent<Renderer>().material.color = bodyPart.disableColor;
                     }
                     GetComponent<Renderer>().material.color = bodyPart.enableColor;
+                    Camera.main.GetComponent<AudioSource>().PlayOneShot(bodyPart.clickSound);
                     //CameraController.Instance.GetComponent<Camera>().fieldOfView = 4f;
                     //UIManager.Instance.canSelectBodyParts = false;
                     //UpdatePosition();
+                    UIManager.Instance.getObject = hit.transform.gameObject;
+
+                    foreach (GameObject g in UIManager.Instance.bodyComponents)
+                    {
+                        g.SetActive(true);
+                    }
+                    //UIManager.Instance.getObject.gameObject.SetActive(true);
                 }
             }
         }

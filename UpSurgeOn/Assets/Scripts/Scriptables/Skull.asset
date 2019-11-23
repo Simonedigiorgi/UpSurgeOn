@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c78bc44edb53ae48a8893401dcbfe46, type: 3}
-  m_Name: Jaw
+  m_Name: Skull
   m_EditorClassIdentifier: 
-  IdName: Jaw
-  name: Jaw
-  description: The jaw is any opposable articulated structure at the entrance of the
-    mouth, typically used for grasping and manipulating food. The term jaws is also
-    broadly applied to the whole of the structures constituting the vault of the mouth
-    and serving to open and close it and is part of the body plan of most animals.
+  IdName: Skull
+  name: Skull
+  description: The human skull is the bony structure that forms the head in the human
+    skeleton. It supports the structures of the face and forms a cavity for the brain.
+    Like the skulls of other vertebrates, it protects the brain from injury. ... The
+    upper areas of the cranial bones form the calvaria (skullcap).
   clickSound: {fileID: 8300000, guid: b7edbfa8537050b4a9d58ce75694c356, type: 3}
   enableColor: {r: 1, g: 0.84985, b: 0.5896226, a: 0}
   disableColor: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 1}

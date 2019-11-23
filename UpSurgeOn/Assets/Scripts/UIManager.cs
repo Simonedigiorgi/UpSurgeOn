@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject skinsButton;
     public GameObject musclesButton;
+    public GameObject labelsButton;
 
     public Animator informativePanel;
     public Animator cameraSlide;
@@ -37,6 +38,8 @@ public class UIManager : MonoBehaviour
 
     public Text titleText;
     public Text descriptionText;
+
+    [HideInInspector] public GameObject getObject;
 
     void Awake()
     {
@@ -87,7 +90,11 @@ public class UIManager : MonoBehaviour
 
         // Disable component colors
         foreach (GameObject i in bodyComponents)
+        {
             i.GetComponent<Renderer>().material.color = i.GetComponent<BodyController>().bodyPart.disableColor;
+            i.SetActive(true);
+        }
+
     }
 
     public void ShowLabels()
@@ -96,9 +103,24 @@ public class UIManager : MonoBehaviour
         foreach (Text t in labelText)
         {
             if (t.enabled)
+            {
                 t.enabled = false;
+                labelsButton.GetComponent<Image>().color = disableColor;
+            }
             else
+            {
                 t.enabled = true;
+                labelsButton.GetComponent<Image>().color = enableColor;
+            }
+
         }
+    }
+
+    public void HideObject()
+    {
+        if (getObject.activeSelf)
+            getObject.gameObject.SetActive(false);
+        else
+            getObject.gameObject.SetActive(true);
     }
 }

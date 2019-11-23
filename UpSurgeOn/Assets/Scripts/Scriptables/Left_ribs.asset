@@ -22,5 +22,6 @@ MonoBehaviour:
     The upper 3 false ribs connect to the costal cartilages of the ribs just above
     them. The last 2 false ribs usually have no anchor in front and are known as floating,
     fluctuating, or vertebral ribs.
+  clickSound: {fileID: 8300000, guid: b7edbfa8537050b4a9d58ce75694c356, type: 3}
   enableColor: {r: 1, g: 0.84985, b: 0.5896226, a: 0}
   disableColor: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 1}
