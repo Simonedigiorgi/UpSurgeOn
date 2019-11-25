@@ -41,6 +41,8 @@ public class UIManager : MonoBehaviour
 
     [HideInInspector] public GameObject getObject;
 
+    public GameObject human;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -122,5 +124,14 @@ public class UIManager : MonoBehaviour
             getObject.gameObject.SetActive(false);
         else
             getObject.gameObject.SetActive(true);
+    }
+
+    public void DetailedView()
+    {
+        //Instantiate(getObject);
+        //humanAnatomy.enabled = false;
+        //human.transform.position = new Vector3(humanAnatomy.transform.position.x, humanAnatomy.transform.position.y, 2000);
+
+        //human.transform.DetachChildren(getObject);
     }
 }
