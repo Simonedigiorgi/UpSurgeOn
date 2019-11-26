@@ -812,11 +812,11 @@ MonoBehaviour:
   - {fileID: 3034339094714570213}
   muscles: {fileID: 3034339094714569925}
   enableColor: {r: 1, g: 1, b: 1, a: 1}
-  disableColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+  disableColor: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 1}
   titleText: {fileID: 281150243}
   descriptionText: {fileID: 3779781}
   getObject: {fileID: 0}
-  human: {fileID: 3034339094714571657}
+  isView: 0
 --- !u!4 &112532051
 Transform:
   m_ObjectHideFlags: 0
@@ -2888,6 +2888,7 @@ GameObject:
   - component: {fileID: 1017822172}
   - component: {fileID: 1017822171}
   - component: {fileID: 1017822173}
+  - component: {fileID: 1017822174}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -3001,6 +3002,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &1017822174
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017822169}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 41d9a4ac3a73d4f44a0f61c97c9c6bb6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1020340044
 GameObject:
   m_ObjectHideFlags: 0
@@ -3491,7 +3511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -62.5}
+  m_AnchoredPosition: {x: 0, y: -62.49994}
   m_SizeDelta: {x: 200, y: -125}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!95 &1194804624

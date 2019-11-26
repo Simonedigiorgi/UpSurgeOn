@@ -29,28 +29,22 @@ public class BodyController : MonoBehaviour
                     UIManager.Instance.descriptionText.text = bodyPart.description;
                     humanAnatomy.GetComponent<Animator>().Play("BodyMoveRight");
                     UIManager.Instance.informativePanel.Play("InformativeRight");
-                    //UIManager.Instance.cameraSlide.Play("SlideRight");
 
                     foreach (GameObject g in UIManager.Instance.bodyComponents)
-                    {
                         g.GetComponent<Renderer>().material.color = bodyPart.disableColor;
-                    }
-                    GetComponent<Renderer>().material.color = bodyPart.enableColor;
-                    Camera.main.GetComponent<AudioSource>().PlayOneShot(bodyPart.clickSound);
-                    //CameraController.Instance.GetComponent<Camera>().fieldOfView = 4f;
-                    //UIManager.Instance.canSelectBodyParts = false;
-                    //UpdatePosition();
+
+                    if(UIManager.Instance.isView == false)
+                        GetComponent<Renderer>().material.color = bodyPart.enableColor;
+
                     UIManager.Instance.getObject = hit.transform.gameObject;
 
                     foreach (GameObject g in UIManager.Instance.bodyComponents)
-                    {
                         g.SetActive(true);
-                    }
-                    //UIManager.Instance.getObject.gameObject.SetActive(true);
+
+                    Debug.Log("HIT");
                 }
             }
         }
-
     }
 
     public void UpdatePosition()

@@ -40,8 +40,7 @@ public class UIManager : MonoBehaviour
     public Text descriptionText;
 
     [HideInInspector] public GameObject getObject;
-
-    public GameObject human;
+    [HideInInspector] public bool isView;
 
     void Awake()
     {
@@ -97,6 +96,14 @@ public class UIManager : MonoBehaviour
             i.SetActive(true);
         }
 
+        foreach (MeshRenderer mesh in humanAnatomy.GetComponentsInChildren<MeshRenderer>())
+        {
+            mesh.enabled = true;
+            isView = false;
+        }
+
+        foreach (MeshCollider collider in humanAnatomy.GetComponentsInChildren<MeshCollider>())
+            collider.GetComponent<MeshCollider>().enabled = true;
     }
 
     public void ShowLabels()
@@ -114,7 +121,6 @@ public class UIManager : MonoBehaviour
                 t.enabled = true;
                 labelsButton.GetComponent<Image>().color = enableColor;
             }
-
         }
     }
 
@@ -124,14 +130,39 @@ public class UIManager : MonoBehaviour
             getObject.gameObject.SetActive(false);
         else
             getObject.gameObject.SetActive(true);
+
+        foreach (Text t in labelText)
+        {
+            if (t.enabled)
+            {
+                t.enabled = false;
+                labelsButton.GetComponent<Image>().color = disableColor;
+            }
+        }
     }
 
     public void DetailedView()
     {
-        //Instantiate(getObject);
-        //humanAnatomy.enabled = false;
-        //human.transform.position = new Vector3(humanAnatomy.transform.position.x, humanAnatomy.transform.position.y, 2000);
+        foreach (MeshRenderer mesh in humanAnatomy.GetComponentsInChildren<MeshRenderer>())
+        {
+            mesh.enabled = false;
+            getObject.GetComponent<MeshRenderer>().enabled = true;
+            getObject.GetComponent<Renderer>().material.color = disableColor;
+        }
 
-        //human.transform.DetachChildren(getObject);
+        foreach (MeshCollider collider in humanAnatomy.GetComponentsInChildren<MeshCollider>())
+            collider.GetComponent<MeshCollider>().enabled = false;
+
+        foreach (Text t in labelText)
+        {
+            if (t.enabled)
+            {
+                t.enabled = false;
+                labelsButton.GetComponent<Image>().color = disableColor;
+            }
+        }
+
+        getObject.GetComponent<MeshCollider>().enabled = true;
+        isView = true;
     }
 }
