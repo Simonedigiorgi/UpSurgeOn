@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
     public Text titleText;
     public Text descriptionText;
 
-    [HideInInspector] public GameObject getObject;
+    [HideInInspector] public GameObject singleBodyPart;
     [HideInInspector] public bool isView;
 
     void Awake()
@@ -126,10 +126,10 @@ public class UIManager : MonoBehaviour
 
     public void HideObject()
     {
-        if (getObject.activeSelf)
-            getObject.gameObject.SetActive(false);
+        if (singleBodyPart.activeSelf)
+            singleBodyPart.gameObject.SetActive(false);
         else
-            getObject.gameObject.SetActive(true);
+            singleBodyPart.gameObject.SetActive(true);
 
         foreach (Text t in labelText)
         {
@@ -146,8 +146,8 @@ public class UIManager : MonoBehaviour
         foreach (MeshRenderer mesh in humanAnatomy.GetComponentsInChildren<MeshRenderer>())
         {
             mesh.enabled = false;
-            getObject.GetComponent<MeshRenderer>().enabled = true;
-            getObject.GetComponent<Renderer>().material.color = disableColor;
+            singleBodyPart.GetComponent<MeshRenderer>().enabled = true;
+            singleBodyPart.GetComponent<Renderer>().material.color = disableColor;
         }
 
         foreach (MeshCollider collider in humanAnatomy.GetComponentsInChildren<MeshCollider>())
@@ -162,7 +162,9 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        getObject.GetComponent<MeshCollider>().enabled = true;
+        singleBodyPart.GetComponent<MeshCollider>().enabled = true;
         isView = true;
+
+        //humanAnatomy.GetComponent<Animator>().Play("BodyMoveLeft");
     }
 }

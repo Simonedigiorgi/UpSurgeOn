@@ -36,7 +36,7 @@ public class BodyController : MonoBehaviour
                     if(UIManager.Instance.isView == false)
                         GetComponent<Renderer>().material.color = bodyPart.enableColor;
 
-                    UIManager.Instance.getObject = hit.transform.gameObject;
+                    UIManager.Instance.singleBodyPart = hit.transform.gameObject;
 
                     foreach (GameObject g in UIManager.Instance.bodyComponents)
                         g.SetActive(true);
