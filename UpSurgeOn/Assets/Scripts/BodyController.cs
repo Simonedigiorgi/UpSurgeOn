@@ -8,8 +8,6 @@ public class BodyController : MonoBehaviour
     public Body bodyPart;
     private Transform humanAnatomy;
 
-
-
     private void Start()
     {
         humanAnatomy = GameObject.FindGameObjectWithTag("HumanAnatomy").transform;

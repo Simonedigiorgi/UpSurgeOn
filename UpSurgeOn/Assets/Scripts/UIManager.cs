@@ -54,34 +54,23 @@ public class UIManager : MonoBehaviour
 
     public void CharacterSkins()
     {
+        Image s = skinsButton.GetComponent<Image>();
         foreach (GameObject skin in skins)
         {
             if (skin.activeSelf == false)
-            {
-                skin.SetActive(true);
-                skinsButton.GetComponent<Image>().color = enableColor;
-            }
+                s.color = ChangeColor(enableColor, skin, true);
             else
-            {
-                skin.SetActive(false);
-                skinsButton.GetComponent<Image>().color = disableColor;
-            }
-
+                s.color = ChangeColor(disableColor, skin, false);
         }
     }
 
     public void CharacterMuscle()
     {
+        Image m = musclesButton.GetComponent<Image>();
         if (muscles.activeSelf == false)
-        {
-            muscles.SetActive(true);
-            musclesButton.GetComponent<Image>().color = enableColor;
-        }
+            m.color = ChangeColor(enableColor, muscles, true);
         else
-        {
-            muscles.SetActive(false);
-            musclesButton.GetComponent<Image>().color = disableColor;
-        }
+            m.color = ChangeColor(disableColor, muscles, false);
     }
 
     public void CloseDescription()
@@ -109,16 +98,17 @@ public class UIManager : MonoBehaviour
     public void ShowLabels()
     {
         // Shows label name on body part 
-        foreach (Text t in labelText)
+        foreach (Text text in labelText)
         {
-            if (t.enabled)
+            Image t = labelsButton.GetComponent<Image>();
+            if (text.enabled)
             {
-                t.enabled = false;
+                text.enabled = false;
                 labelsButton.GetComponent<Image>().color = disableColor;
             }
             else
             {
-                t.enabled = true;
+                text.enabled = true;
                 labelsButton.GetComponent<Image>().color = enableColor;
             }
         }
@@ -166,5 +156,11 @@ public class UIManager : MonoBehaviour
         isView = true;
 
         //humanAnatomy.GetComponent<Animator>().Play("BodyMoveLeft");
+    }
+
+    Color ChangeColor(Color color, GameObject obj, bool equal)
+    {
+        obj.SetActive(equal);
+        return color;
     }
 }
