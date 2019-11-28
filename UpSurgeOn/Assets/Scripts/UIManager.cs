@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DigitalRubyShared;
 
 public class UIManager : MonoBehaviour
 {
@@ -43,7 +44,12 @@ public class UIManager : MonoBehaviour
     [HideInInspector] public bool isView;
 
     private Vector3 bodypartPosition;
-    //public Transform bodypartPivot;
+    public Transform bodypartPivot;
+
+    //public GameObject camera;
+    //GameObject clone;
+
+    public GameObject[] clones;
 
     void Awake()
     {
@@ -79,7 +85,11 @@ public class UIManager : MonoBehaviour
     public void CloseDescription()
     {
         humanAnatomy.GetComponent<Animator>().Play("BodyMoveLeft");
-        informativePanel.Play("InformativeLeft");
+
+        if (isView)
+            informativePanel.Play("InformativeDetailsClose");
+        else
+            informativePanel.Play("InformativeLeft");
 
         // Disable component colors
         foreach (GameObject i in bodyComponents)
@@ -97,7 +107,7 @@ public class UIManager : MonoBehaviour
         foreach (MeshCollider collider in humanAnatomy.GetComponentsInChildren<MeshCollider>())
             collider.GetComponent<MeshCollider>().enabled = true;
 
-        //singleBodyPart.transform.position = bodypartPosition;
+        //Destroy(clone);
     }
 
     public void ShowLabels()
@@ -153,9 +163,9 @@ public class UIManager : MonoBehaviour
         singleBodyPart.gameObject.SetActive(true);
         foreach (MeshRenderer mesh in humanAnatomy.GetComponentsInChildren<MeshRenderer>())
         {
+            singleBodyPart.GetComponent<Renderer>().material.color = disableColor;
             mesh.enabled = false;
             singleBodyPart.GetComponent<MeshRenderer>().enabled = true;
-            singleBodyPart.GetComponent<Renderer>().material.color = disableColor;
         }
 
         foreach (MeshCollider collider in humanAnatomy.GetComponentsInChildren<MeshCollider>())
@@ -179,11 +189,32 @@ public class UIManager : MonoBehaviour
         //singleBodyPart.transform.position = bodypartPivot.position;
         //singleBodyPart.transform.position = new Vector3(0, Camera.main.transform.position.y, Camera.main.fieldOfView);
         humanAnatomy.GetComponent<Animator>().Play("BodyMoveLeft");
+        informativePanel.Play("InformativeDetails");
+        //ShowClone();
+        /*clone = Instantiate(singleBodyPart);
+        clone.GetComponent<MeshCollider>().enabled = true;
+        clone.GetComponent<MeshRenderer>().enabled = true;
+        bodypartPivot.GetComponent<rotObj>().enabled = true;
+        bodypartPivot.GetComponent<BoxCollider>().enabled = true;
+        clone.transform.SetParent(bodypartPivot);*/
+
+        /*var b = bodypartPivot.GetComponent<MeshFilter>();
+        b.mesh = singleBodyPart.GetComponent<MeshFilter>().mesh;*/
+
+        //camera.GetComponent<FingersPanOrbitComponentScript>().enabled = true;
+        //camera.transform.position = singleBodyPart.transform.position;
+        //camera.GetComponent<FingersPanOrbitComponentScript>().OrbitTarget = singleBodyPart.transform;
     }
 
     Color ChangeColor(Color color, GameObject obj, bool equal)
     {
         obj.SetActive(equal);
         return color;
+    }
+
+    public void ShowClone()
+    {
+        clones[0].SetActive(true);
+        clones[0].transform.SetParent(bodypartPivot);
     }
 }

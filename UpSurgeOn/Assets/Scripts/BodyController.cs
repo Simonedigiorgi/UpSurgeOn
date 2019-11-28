@@ -28,7 +28,8 @@ public class BodyController : MonoBehaviour
                     if (UIManager.Instance.isView == false)
                         humanAnatomy.GetComponent<Animator>().Play("BodyMoveRight");
 
-                    UIManager.Instance.informativePanel.Play("InformativeRight");
+                    if(UIManager.Instance.isView == false)
+                        UIManager.Instance.informativePanel.Play("InformativeRight");
 
                     foreach (GameObject g in UIManager.Instance.bodyComponents)
                         g.GetComponent<Renderer>().material.color = bodyPart.disableColor;
