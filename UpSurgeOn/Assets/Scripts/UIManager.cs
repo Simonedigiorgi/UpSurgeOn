@@ -42,6 +42,9 @@ public class UIManager : MonoBehaviour
     [HideInInspector] public GameObject singleBodyPart;
     [HideInInspector] public bool isView;
 
+    private Vector3 bodypartPosition;
+    //public Transform bodypartPivot;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -93,6 +96,8 @@ public class UIManager : MonoBehaviour
 
         foreach (MeshCollider collider in humanAnatomy.GetComponentsInChildren<MeshCollider>())
             collider.GetComponent<MeshCollider>().enabled = true;
+
+        //singleBodyPart.transform.position = bodypartPosition;
     }
 
     public void ShowLabels()
@@ -116,10 +121,22 @@ public class UIManager : MonoBehaviour
 
     public void HideObject()
     {
-        if (singleBodyPart.activeSelf)
-            singleBodyPart.gameObject.SetActive(false);
+        if(isView == false)
+        {
+            if (singleBodyPart.activeSelf)
+            {
+                singleBodyPart.gameObject.SetActive(false);
+            }
+            else
+            {
+                singleBodyPart.gameObject.SetActive(true);
+            }
+        }
         else
+        {
             singleBodyPart.gameObject.SetActive(true);
+        }
+
 
         foreach (Text t in labelText)
         {
@@ -133,6 +150,7 @@ public class UIManager : MonoBehaviour
 
     public void DetailedView()
     {
+        singleBodyPart.gameObject.SetActive(true);
         foreach (MeshRenderer mesh in humanAnatomy.GetComponentsInChildren<MeshRenderer>())
         {
             mesh.enabled = false;
@@ -155,7 +173,12 @@ public class UIManager : MonoBehaviour
         singleBodyPart.GetComponent<MeshCollider>().enabled = true;
         isView = true;
 
-        //humanAnatomy.GetComponent<Animator>().Play("BodyMoveLeft");
+        //bodypartPosition = singleBodyPart.transform.position;
+
+
+        //singleBodyPart.transform.position = bodypartPivot.position;
+        //singleBodyPart.transform.position = new Vector3(0, Camera.main.transform.position.y, Camera.main.fieldOfView);
+        humanAnatomy.GetComponent<Animator>().Play("BodyMoveLeft");
     }
 
     Color ChangeColor(Color color, GameObject obj, bool equal)

@@ -25,7 +25,9 @@ public class BodyController : MonoBehaviour
                 {
                     UIManager.Instance.titleText.text = bodyPart.name.ToUpper();
                     UIManager.Instance.descriptionText.text = bodyPart.description;
-                    humanAnatomy.GetComponent<Animator>().Play("BodyMoveRight");
+                    if (UIManager.Instance.isView == false)
+                        humanAnatomy.GetComponent<Animator>().Play("BodyMoveRight");
+
                     UIManager.Instance.informativePanel.Play("InformativeRight");
 
                     foreach (GameObject g in UIManager.Instance.bodyComponents)

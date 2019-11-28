@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
 
     // Camera Slider
     public Slider slider;
-    private Vector3 position1 = new Vector3(0f, 0f, -5);
+    private Vector3 position1 = new Vector3(0f, 0.03f, -5);
     private Vector3 position2 = new Vector3(0f, -1.65f, -5);
 
     void Awake()
