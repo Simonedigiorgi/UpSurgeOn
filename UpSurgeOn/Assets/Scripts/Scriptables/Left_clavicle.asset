@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c78bc44edb53ae48a8893401dcbfe46, type: 3}
+  m_Name: Left_clavicle
+  m_EditorClassIdentifier: 
+  IdName: Left_clavicle
+  name: Left Clavicle
+  description: The clavicle or collarbone is a long bone that serves as a strut between
+    the shoulder blade and the sternum or breastbone. There are two clavicles, one
+    on the left and one on the right. The clavicle is the only long bone in the body
+    that lies horizontally. Together with the shoulder blade it makes up the shoulder
+    girdle. It is a touchable bone and in people who have less fat in this region,
+    the location of the bone is clearly visible, as it creates a bulge in the skin.
+  clickSound: {fileID: 8300000, guid: b7edbfa8537050b4a9d58ce75694c356, type: 3}
+  enableColor: {r: 1, g: 0.84985, b: 0.5896226, a: 0}
+  disableColor: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 1}

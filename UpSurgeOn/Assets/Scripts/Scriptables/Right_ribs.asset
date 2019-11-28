@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c78bc44edb53ae48a8893401dcbfe46, type: 3}
+  m_Name: Right_ribs
+  m_EditorClassIdentifier: 
+  IdName: Right_ribs
+  name: Right Ribs
+  description: One of the 12 paired arches of bone that form the skeletal structure
+    of the chest wall (the rib cage). The ribs attach to the vertebrae of the spine
+    in the back. The 12 pairs of ribs consist of 7 pairs of ribs that attach to the
+    sternum in the front and are known as true, or sternal, ribs; and 5 pairs of lower
+    ribs that do not connect directly to the sternum and are known as false ribs.
+    The upper 3 false ribs connect to the costal cartilages of the ribs just above
+    them. The last 2 false ribs usually have no anchor in front and are known as floating,
+    fluctuating, or vertebral ribs.
+  clickSound: {fileID: 8300000, guid: b7edbfa8537050b4a9d58ce75694c356, type: 3}
+  enableColor: {r: 1, g: 0.84985, b: 0.5896226, a: 0}
+  disableColor: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 1}
