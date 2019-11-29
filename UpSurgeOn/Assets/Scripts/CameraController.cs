@@ -49,9 +49,8 @@ public class CameraController : MonoBehaviour
         // Zoom
         if (Input.touchCount == 2 && Input.GetTouch(0).phase == TouchPhase.Moved && Input.GetTouch(1).phase == TouchPhase.Moved)
         {
-            curDist = Input.GetTouch(0).position - Input.GetTouch(1).position; //current distance between finger touches
-            prevDist = ((Input.GetTouch(0).position - Input.GetTouch(0).deltaPosition) - (Input.GetTouch(1).position - Input.GetTouch(1).deltaPosition)); //difference in previous locations using delta positions
-            touchDelta = curDist.magnitude - prevDist.magnitude;
+            curDist = Input.GetTouch(0).position - Input.GetTouch(1).position;
+            prevDist = ((Input.GetTouch(0).position - Input.GetTouch(0).deltaPosition) - (Input.GetTouch(1).position - Input.GetTouch(1).deltaPosition));
             speedTouch0 = Input.GetTouch(0).deltaPosition.magnitude / Input.GetTouch(0).deltaTime;
             speedTouch1 = Input.GetTouch(1).deltaPosition.magnitude / Input.GetTouch(1).deltaTime;
 

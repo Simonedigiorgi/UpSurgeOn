@@ -41,8 +41,6 @@ public class BodyController : MonoBehaviour
 
                     foreach (GameObject g in UIManager.Instance.bodyComponents)
                         g.SetActive(true);
-
-                    Debug.Log("HIT");
                 }
             }
         }
@@ -53,6 +51,4 @@ public class BodyController : MonoBehaviour
         Vector3 newPosition = Vector3.Lerp(CameraController.Instance.transform.position, new Vector3(0, transform.GetChild(0).transform.position.y, -4f), 1f);
         CameraController.Instance.transform.position = newPosition;
     }
-
-
 }

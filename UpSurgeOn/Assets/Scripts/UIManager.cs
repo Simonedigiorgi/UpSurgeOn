@@ -46,9 +46,6 @@ public class UIManager : MonoBehaviour
     private Vector3 bodypartPosition;
     public Transform bodypartPivot;
 
-    //public GameObject camera;
-    //GameObject clone;
-
     public GameObject[] clones;
 
     void Awake()
@@ -85,7 +82,6 @@ public class UIManager : MonoBehaviour
     public void CloseDescription()
     {
         humanAnatomy.GetComponent<Animator>().Play("BodyMoveLeft");
-
         if (isView)
             informativePanel.Play("InformativeDetailsClose");
         else
@@ -106,8 +102,6 @@ public class UIManager : MonoBehaviour
 
         foreach (MeshCollider collider in humanAnatomy.GetComponentsInChildren<MeshCollider>())
             collider.GetComponent<MeshCollider>().enabled = true;
-
-        //Destroy(clone);
     }
 
     public void ShowLabels()
@@ -134,19 +128,12 @@ public class UIManager : MonoBehaviour
         if(isView == false)
         {
             if (singleBodyPart.activeSelf)
-            {
                 singleBodyPart.gameObject.SetActive(false);
-            }
             else
-            {
                 singleBodyPart.gameObject.SetActive(true);
-            }
         }
         else
-        {
             singleBodyPart.gameObject.SetActive(true);
-        }
-
 
         foreach (Text t in labelText)
         {
@@ -183,38 +170,13 @@ public class UIManager : MonoBehaviour
         singleBodyPart.GetComponent<MeshCollider>().enabled = true;
         isView = true;
 
-        //bodypartPosition = singleBodyPart.transform.position;
-
-
-        //singleBodyPart.transform.position = bodypartPivot.position;
-        //singleBodyPart.transform.position = new Vector3(0, Camera.main.transform.position.y, Camera.main.fieldOfView);
         humanAnatomy.GetComponent<Animator>().Play("BodyMoveLeft");
         informativePanel.Play("InformativeDetails");
-        //ShowClone();
-        /*clone = Instantiate(singleBodyPart);
-        clone.GetComponent<MeshCollider>().enabled = true;
-        clone.GetComponent<MeshRenderer>().enabled = true;
-        bodypartPivot.GetComponent<rotObj>().enabled = true;
-        bodypartPivot.GetComponent<BoxCollider>().enabled = true;
-        clone.transform.SetParent(bodypartPivot);*/
-
-        /*var b = bodypartPivot.GetComponent<MeshFilter>();
-        b.mesh = singleBodyPart.GetComponent<MeshFilter>().mesh;*/
-
-        //camera.GetComponent<FingersPanOrbitComponentScript>().enabled = true;
-        //camera.transform.position = singleBodyPart.transform.position;
-        //camera.GetComponent<FingersPanOrbitComponentScript>().OrbitTarget = singleBodyPart.transform;
     }
 
     Color ChangeColor(Color color, GameObject obj, bool equal)
     {
         obj.SetActive(equal);
         return color;
-    }
-
-    public void ShowClone()
-    {
-        clones[0].SetActive(true);
-        clones[0].transform.SetParent(bodypartPivot);
     }
 }
